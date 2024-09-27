@@ -1,0 +1,191 @@
+/* Estilos básicos y de reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del body para alinear el contenido */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinear el contenido hacia arriba */
+    min-height: 100vh;
+    padding-top: 20px; /* Espacio superior */
+    padding-left: 10px; /* Espacio lateral izquierdo */
+    padding-right: 10px; /* Espacio lateral derecho */
+}
+
+/* Contenedor principal con scroll vertical */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    height: 90vh; /* Fijar el tamaño de la altura de la caja */
+    overflow-y: auto; /* Activar scroll vertical */
+    margin-bottom: 20px; /* Espacio inferior para el scroll */
+}
+
+/* Títulos */
+h1, h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* Grupo de formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo para etiquetas */
+label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Estilo para inputs, selects y botones */
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo específico para los botones */
+button {
+    background-color: #1a5788;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Cambiar color del botón cuando se pasa el mouse */
+button:hover {
+    background-color: #002880;
+}
+
+/* Tabla de asistencia */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+/* Estilos para las celdas de la tabla */
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Fondo para los encabezados de la tabla */
+thead {
+    background-color: #f4f4f4;
+}
+
+/* Estilo específico para las filas de la tabla */
+#attendanceTable tbody tr {
+    display: table-row;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo del botón "Salida" deshabilitado y en azul */
+button[disabled] {
+    background-color: blue;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Estilo general del modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+/* Contenedor en modo oscuro */
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo para los títulos en modo oscuro */
+body.dark-mode h1, body.dark-mode h2 {
+    color: #ffffff;
+}
+
+/* Estilo de los inputs, select y botones en modo oscuro */
+body.dark-mode input, body.dark-mode select, body.dark-mode button {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+}
+
+/* Tabla de asistencia en modo oscuro */
+body.dark-mode table {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-mode th, body.dark-mode td {
+    border-color: #555;
+}
+
+/* Botón en modo oscuro */
+body.dark-mode button {
+    background-color: #28a745;
+    border: none;
+}
+
+body.dark-mode button:hover {
+    background-color: #218838;
+}
+
+/* Barra de búsqueda en modo oscuro */
+body.dark-mode .search-bar {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #f1f1f1;
+}
+
+/* Estilos básicos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}

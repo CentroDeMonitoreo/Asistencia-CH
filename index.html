@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia Automático</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Asistencia Centro Historico</h1>
+
+        <!-- Formulario para registrar asistencia -->
+        <form id="attendanceForm">
+            <div class="form-group">
+                <label for="nombre">Seleccionar Nombre:</label>
+                
+                <!-- Input con datalist para búsqueda rápida -->
+                <input list="nombres" id="nombre" name="nombre" required placeholder="Escribe tu nombre">
+                <datalist id="nombres">
+                    <!-- Aquí puedes agregar el resto de los nombres -->
+                    <option value="Nelson Edgardo Hernandez Hernandez - CH AMSS">
+                        <option value="Ariel Alfredo Elias Alvarez - CH AMSS">
+                        <option value="Fernanda Estefania Peña Valladares - CH APLAN">
+                        <option value="Astrid Hillary Campos de Jimenez -CH AMSS">
+
+                    </datalist>
+            </div>
+            <button type="submit">Registrar</button>
+        </form>
+
+        <!-- Sección para filtrar asistencia por fecha -->
+        <h2>Filtrar Asistencia</h2>
+        <div class="form-group">
+            <label for="filterDate">Seleccionar Fecha:</label>
+            <input type="date" id="filterDate">
+            <button type="button" id="filterButton">Filtrar</button>
+            <button type="button" id="clearFilterButton">Limpiar Filtro</button> <!-- Botón para limpiar el filtro -->
+        </div>
+
+        <!-- Historial de Asistencia -->
+        <h2>Historial de Asistencia</h2>
+        <input type="text" id="searchName" class="search-bar" placeholder="Buscar en el historial de asistencia...">
+        <table id="attendanceTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Hora de Entrada</th>
+                    <th>Fecha de Entrada</th>
+                    <th>Hora de Salida</th>
+                    <th>Fecha de Salida</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Opciones para la Asistencia -->
+        <h2>Opciones para la Asistencia</h2>
+        <!-- Se eliminó el botón de Descargar PDF y Limpiar Historial -->
+        <button id="downloadXlsx">Descargar Excel</button>
+
+        <!-- Botón para eliminar historial (requiere PIN) -->
+        <button id="deleteHistoryButton">Eliminar Historial (Requiere PIN)</button>
+
+        <!-- Cuadro de diálogo para introducir el PIN -->
+        <div id="pinModal" class="modal">
+            <div class="modal-content">
+                <h2>Introduce el PIN de Administrador</h2>
+                <input type="password" id="adminPinInput" placeholder="Introduce el PIN">
+                <button id="confirmPinButton">Confirmar</button>
+                <button id="cancelPinButton">Cancelar</button>
+                <p id="pinError" style="color: red; display: none;">PIN incorrecto. Intenta nuevamente.</p>
+            </div>
+        </div>
+
+        <!-- Nueva Sección para "Ausencias por Día" -->
+        <h2>Ausencias por Día</h2>
+        <input type="date" id="absenceDate" required>
+        <button id="showAbsencesButton">Mostrar Ausencias del Día</button>
+        <button id="clearAbsencesButton">Limpiar Ausencias</button>
+
+        <!-- Tabla para mostrar ausencias -->
+        <table id="absencesTable">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha de Ausencia</th>
+                </tr>
+            </thead>
+            <tbody id="absencesTableBody">
+                <!-- Las ausencias aparecerán aquí -->
+            </tbody>
+        </table>
+        <button id="downloadAbsencesXlsx">Descargar Ausencias en Excel</button>
+
+        <!-- Nueva sección "Opciones Adicionales" -->
+        <h2>Opciones Adicionales</h2>
+        <!-- Botón para descargar el archivo consolidado (Asistencia + Ausencias) en Excel -->
+        <button id="downloadConsolidadoXlsx">Descargar Consolidado (Asistencia + Ausencias)</button>
+        <!-- Botón para alternar entre modo oscuro y claro -->
+        <button id="toggleDarkMode">Activar Modo Oscuro</button>
+
+        <!-- Footer con Copyright -->
+        <footer style="text-align: center; margin-top: 20px;">
+            <p id="copyright"></p>
+        </footer>
+    </div>
+
+    <!-- Librería jsPDF para generar PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Librería SheetJS para generar Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- Script personalizado -->
+    <script src="script.js"></script>
+
+    <!-- Script para generar Copyright dinámico -->
+    <script>
+        // Obtener el año actual
+        const year = new Date().getFullYear();
+
+        // Asignar el contenido al párrafo con id 'copyright'
+        document.getElementById('copyright').innerHTML = 
+            `&copy; ${year} | Xavier Moran | Agente de Monitoreo | ANDRES - Autoridad Nacional de Residuos Sólidos. Todos los derechos reservados.`;
+    </script>
+</body>
+</html>
